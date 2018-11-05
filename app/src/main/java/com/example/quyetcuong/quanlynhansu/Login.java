@@ -16,9 +16,9 @@ import android.widget.Toast;
 
 import com.example.quyetcuong.quanlynhansu.data.DBManager;
 
-public class MainActivity extends AppCompatActivity {
+public class Login extends AppCompatActivity {
     private EditText edt_username,edt_password;
-    private TextView tv_quenmatkhau;
+    private TextView tv_quenmatkhau,tv_taotaikhoan;
     private CheckBox checkBox;
     private Button btn_login;
 
@@ -39,11 +39,11 @@ public class MainActivity extends AppCompatActivity {
                 //Permisson don't granted
                 if (shouldShowRequestPermissionRationale(
                         Manifest.permission.READ_EXTERNAL_STORAGE)) {
-                    Toast.makeText(MainActivity.this, "Permission isn't granted ", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Login.this, "Permission isn't granted ", Toast.LENGTH_SHORT).show();
                 }
                 // Permisson don't granted and dont show dialog again.
                 else {
-                    Toast.makeText(MainActivity.this, "Permisson don't granted and dont show dialog again ", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Login.this, "Permisson don't granted and dont show dialog again ", Toast.LENGTH_SHORT).show();
                 }
                 //Register permission
                 requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 1);
@@ -58,14 +58,31 @@ public class MainActivity extends AppCompatActivity {
         tv_quenmatkhau = (TextView) findViewById(R.id.tv_quenmatkhau);
         checkBox = (CheckBox) findViewById(R.id.check_box_login);
         btn_login = (Button) findViewById(R.id.btn_login);
+        tv_taotaikhoan = (TextView) findViewById(R.id.tv_taotaikhoan);
+
 
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            Intent intent = new Intent(MainActivity.this,main_scree_admin.class);
+            Intent intent = new Intent(Login.this,Admin.class);
             startActivity(intent    );
 
             }
         });
+
+        tv_taotaikhoan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent =  new Intent(Login.this,Register.class);
+            }
+        });
+
+
+
+
+
     }
+
+
+
 }
