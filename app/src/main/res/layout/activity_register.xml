@@ -127,7 +127,7 @@
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:toLef="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
             android:layout_marginLeft="30dp"
 
             />
